@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>קיצורי דרך לכלי AI - Shortcut Hub</title>
     <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #50e3c2;
+            --background-color: #f5f7fa;
+            --text-color: #333;
+            --hover-color: #3a7bd5;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 60px auto 0;
             padding: 20px;
         }
@@ -22,7 +29,7 @@
             position: fixed;
             top: 10px;
             left: 10px;
-            background-color: #667eea;
+            background-color: var(--primary-color);
             color: white;
             padding: 5px 10px;
             border-radius: 5px;
@@ -33,7 +40,7 @@
             position: fixed;
             top: 10px;
             right: 10px;
-            background-color: #667eea;
+            background-color: var(--primary-color);
             color: white;
             padding: 10px 20px;
             border-radius: 25px;
@@ -43,10 +50,18 @@
             transition: background-color 0.3s ease;
         }
         .home-button:hover {
-            background-color: #764ba2;
+            background-color: var(--hover-color);
         }
-        h1, h2 {
-            color: #667eea;
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
         }
         .shortcut-section {
             background: white;
@@ -54,6 +69,16 @@
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .shortcut-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .app-description {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #666;
         }
         .shortcut-list {
             list-style-type: none;
@@ -62,27 +87,49 @@
         .shortcut-item {
             margin-bottom: 10px;
             padding: 10px;
-            background: #f9f9f9;
+            background: #f0f4f8;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .shortcut-item:hover {
-            background-color: #e9e9e9;
+            background-color: #e6eaf0;
         }
         .shortcut-key {
             font-weight: bold;
-            color: #667eea;
+            color: var(--primary-color);
+            padding: 5px 10px;
+            background-color: #e0e7ff;
+            border-radius: 3px;
         }
         .tips {
             background-color: #e7f5ff;
-            border-left: 5px solid #667eea;
-            padding: 15px;
-            margin-top: 20px;
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            margin-top: 30px;
             border-radius: 0 5px 5px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .tips h3 {
-            color: #667eea;
+            color: var(--primary-color);
             margin-top: 0;
+            font-size: 1.5em;
+        }
+        .tips ul {
+            padding-right: 20px;
+        }
+        .tips li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .tips li::before {
+            content: '✓';
+            color: var(--primary-color);
+            position: absolute;
+            right: -20px;
+            top: 2px;
         }
         .external-links {
             background: #e6e6fa;
@@ -92,24 +139,44 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .external-links h2 {
-            color: #667eea;
+            color: var(--primary-color);
             margin-bottom: 15px;
         }
         .external-links ul {
             list-style-type: none;
             padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
         }
         .external-links li {
             margin-bottom: 10px;
         }
         .external-links a {
-            color: #667eea;
+            color: var(--primary-color);
             text-decoration: none;
             transition: color 0.3s ease;
+            display: block;
+            padding: 10px;
+            background-color: #f0f4f8;
+            border-radius: 5px;
+            text-align: center;
         }
         .external-links a:hover {
-            color: #764ba2;
-            text-decoration: underline;
+            color: var(--hover-color);
+            background-color: #e6eaf0;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .shortcut-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .shortcut-key {
+                margin-bottom: 5px;
+            }
         }
     </style>
 </head>
@@ -121,57 +188,110 @@
         
         <div class="shortcut-section">
             <h2>ChatGPT</h2>
+            <p class="app-description">מודל שפה מתקדם המסוגל לנהל שיחות, לענות על שאלות ולסייע במגוון משימות.</p>
             <ul class="shortcut-list">
-                <li class="shortcut-item"><span class="shortcut-key">Ctrl + /</span>: פתח תפריט קיצורי דרך</li>
-                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + C</span>: העתק את כל השיחה</li>
-                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + V</span>: הדבק טקסט ושלח</li>
-                <li class="shortcut-item"><span class="shortcut-key">↑</span>: ערוך את ההודעה האחרונה שלך</li>
-                <li class="shortcut-item"><span class="shortcut-key">Tab, ואז Enter</span>: השלם את ההצעה</li>
-                <li class="shortcut-item"><span class="shortcut-key">Esc</span>: התמקד בתיבת הקלט</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + /</span>פתח תפריט קיצורי דרך</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + C</span>העתק את כל השיחה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + V</span>הדבק טקסט ושלח</li>
+                <li class="shortcut-item"><span class="shortcut-key">↑</span>ערוך את ההודעה האחרונה שלך</li>
+                <li class="shortcut-item"><span class="shortcut-key">Tab, ואז Enter</span>השלם את ההצעה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Esc</span>התמקד בתיבת הקלט</li>
+            </ul>
+        </div>
+
+        <div class="shortcut-section">
+            <h2>Claude</h2>
+            <p class="app-description">מודל AI מתקדם מבית Anthropic, המציע יכולות שיחה ופתרון בעיות מורכבות.</p>
+            <ul class="shortcut-list">
+                <li class="shortcut-item"><span class="shortcut-key">Enter</span>שלח הודעה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Shift + Enter</span>הוסף שורה חדשה</li>
+                <li class="shortcut-item"><span class="shortcut-key">↑</span>ערוך את ההודעה האחרונה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + /</span>הצג קיצורי מקלדת</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + R</span>התחל שיחה חדשה</li>
+            </ul>
+        </div>
+
+        <div class="shortcut-section">
+            <h2>GitHub Copilot</h2>
+            <p class="app-description">כלי AI לסיוע בכתיבת קוד, מציע השלמות קוד חכמות ומתקדמות.</p>
+            <ul class="shortcut-list">
+                <li class="shortcut-item"><span class="shortcut-key">Tab</span>קבל הצעה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Enter</span>קבל הצעה מלאה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Alt + [</span>הצעה קודמת</li>
+                <li class="shortcut-item"><span class="shortcut-key">Alt + ]</span>הצעה הבאה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + /</span>הפעל/כבה Copilot</li>
             </ul>
         </div>
 
         <div class="shortcut-section">
             <h2>Midjourney</h2>
+            <p class="app-description">כלי AI ליצירת תמונות מטקסט, מאפשר יצירת אמנות דיגיטלית מתיאורים מילוליים.</p>
             <ul class="shortcut-list">
-                <li class="shortcut-item"><span class="shortcut-key">/imagine</span>: צור תמונה חדשה</li>
-                <li class="shortcut-item"><span class="shortcut-key">/blend</span>: ערבב מספר תמונות</li>
-                <li class="shortcut-item"><span class="shortcut-key">/describe</span>: תאר תמונה קיימת</li>
-                <li class="shortcut-item"><span class="shortcut-key">U1, U2, U3, U4</span>: שדרג גרסה ספציפית</li>
-                <li class="shortcut-item"><span class="shortcut-key">V1, V2, V3, V4</span>: צור וריאציה של גרסה ספציפית</li>
+                <li class="shortcut-item"><span class="shortcut-key">/imagine</span>צור תמונה חדשה</li>
+                <li class="shortcut-item"><span class="shortcut-key">/blend</span>ערבב מספר תמונות</li>
+                <li class="shortcut-item"><span class="shortcut-key">/describe</span>תאר תמונה קיימת</li>
+                <li class="shortcut-item"><span class="shortcut-key">U1, U2, U3, U4</span>שדרג גרסה ספציפית</li>
+                <li class="shortcut-item"><span class="shortcut-key">V1, V2, V3, V4</span>צור וריאציה של גרסה ספציפית</li>
             </ul>
         </div>
 
         <div class="shortcut-section">
             <h2>DALL-E</h2>
+            <p class="app-description">מודל AI של OpenAI ליצירת תמונות מתיאורים טקסטואליים, מאפשר יצירת אמנות ייחודית.</p>
             <ul class="shortcut-list">
-                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Enter</span>: צור תמונה</li>
-                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Z</span>: בטל פעולה אחרונה</li>
-                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + Z</span>: חזור על פעולה שבוטלה</li>
-                <li class="shortcut-item"><span class="shortcut-key">Ctrl + S</span>: שמור תמונה</li>
-                <li class="shortcut-item"><span class="shortcut-key">Ctrl + C</span>: העתק תמונה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Enter</span>צור תמונה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Z</span>בטל פעולה אחרונה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + Z</span>חזור על פעולה שבוטלה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + S</span>שמור תמונה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + C</span>העתק תמונה</li>
             </ul>
         </div>
 
-        <div class="tips">
+        <div class="shortcut-section">
+            <h2>Jasper AI</h2>
+            <p class="app-description">כלי AI לכתיבת תוכן, מסייע ביצירת טקסטים שיווקיים, בלוגים ותוכן דיגיטלי.</p>
+            <ul class="shortcut-list">
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + /</span>הצג קיצורי מקלדת</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Enter</span>צור תוכן</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Z</span>בטל פעולה אחרונה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + C</span>העתק תוכן שנוצר</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + S</span>שמור מסמך</li>
+            </ul>
+        </div>
+
+        <div class="shortcut-section">
+            <h2>Grammarly</h2>
+            <p class="app-description">כלי AI לבדיקת ותיקון שגיאות דקדוק, איות וסגנון כתיבה.</p>
+            <ul class="shortcut-list">
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Click</span>הצג הצעות תיקון</li>
+                <li class="shortcut-item"><span class="shortcut-key">Alt + Click</span>הוסף מילה למילון האישי</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + D</span>פתח חלון Grammarly</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + G
+                <div class="tips">
             <h3>טיפים לשימוש יעיל בקיצורי דרך בכלי AI</h3>
             <ul>
                 <li>השתמש בקיצורי דרך כדי לחסוך זמן בפעולות חוזרות ונשנות.</li>
                 <li>נצל את היכולות של AI להשלמת משימות מורכבות במהירות.</li>
                 <li>השתמש בקיצורי דרך לניווט מהיר בין אפשרויות שונות בכלי AI.</li>
                 <li>למד את הפקודות הייחודיות לכל כלי AI כדי למקסם את היעילות שלך.</li>
+                <li>התנסה בשילוב של מספר כלי AI לקבלת תוצאות מורכבות ומעניינות יותר.</li>
+                <li>בדוק באופן קבוע עדכונים לכלי AI, שכן הם מתעדכנים לעתים קרובות עם תכונות חדשות.</li>
+                <li>השתמש בקיצורי דרך להפעלה מהירה של פונקציות AI, כמו יצירת תוכן או תיקון טקסט.</li>
+                <li>נצל קיצורי דרך לשמירה מהירה של תוצרי AI, כמו תמונות או טקסטים שנוצרו.</li>
+                <li>השתמש בקיצורי מקלדת לניווט מהיר בין חלקים שונים של ממשק המשתמש בכלי AI.</li>
+                <li>תרגל את השימוש בקיצורי דרך באופן קבוע כדי להפוך אותם להרגל אוטומטי.</li>
             </ul>
         </div>
 
         <div class="external-links">
             <h2>קישורים להרחבה</h2>
             <ul>
-                <li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank">עדכונים ותכונות חדשות ב-ChatGPT</a></li>
-                <li><a href="https://docs.midjourney.com/docs/command-list" target="_blank">רשימת פקודות Midjourney</a></li>
-                <li><a href="https://labs.openai.com/" target="_blank">DALL-E מאת OpenAI</a></li>
-                <li><a href="https://www.coursera.org/articles/ai-tools" target="_blank">סקירה של כלי AI פופולריים</a></li>
+                <li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank">ChatGPT</a></li>
+                <li><a href="https://www.anthropic.com" target="_blank">Claude</a></li>
+                <li><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a></li>
+                <li><a href="https://docs.midjourney.com/docs/command-list" target="_blank">Midjourney</a></li>
+                <li><a href="https://labs.openai.com/" target="_blank">DALL-E</a></li>
+                <li><a href="https://www.jasper.ai/" target="_blank">Jasper AI</a></li>
+                <li><a href="https://www.grammarly.com/" target="_blank">Grammarly</a></li>
             </ul>
         </div>
-    </div>
-</body>
-</html>
