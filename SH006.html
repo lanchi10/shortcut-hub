@@ -6,11 +6,11 @@
     <title>קיצורי דרך לכלי AI - Shortcut Hub</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Assistant', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
             color: #333;
         }
         .container {
@@ -62,12 +62,13 @@
         .shortcut-item {
             margin-bottom: 10px;
             padding: 10px;
-            background: #f9f9f9;
+            background: #f0f0f5;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .shortcut-item:hover {
-            background-color: #e9e9e9;
+            background-color: #e6e6fa;
+            transform: scale(1.05);
         }
         .shortcut-key {
             font-weight: bold;
@@ -111,16 +112,52 @@
             color: #764ba2;
             text-decoration: underline;
         }
+
+        /* מצב לילה */
+        body.dark-mode {
+            background-color: #1e1e1e;
+            color: #f4f4f4;
+        }
+        body.dark-mode h1, body.dark-mode h2, body.dark-mode .shortcut-key, body.dark-mode .home-button {
+            color: #9aa9f4;
+        }
+        body.dark-mode .shortcut-section, body.dark-mode .external-links {
+            background: #333;
+        }
+        body.dark-mode .shortcut-item {
+            background: #444;
+        }
+        body.dark-mode .shortcut-item:hover {
+            background: #555;
+        }
+        .toggle-dark-mode {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 1000;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-dark-mode:hover {
+            background-color: #764ba2;
+        }
     </style>
 </head>
 <body>
     <div class="page-id">ID: SH006</div>
-    <a href="index.html" class="home-button">חזרה לדף הראשי</a>
+    <a href="https://lanchi10.github.io/shortcut-hub/" class="home-button">חזרה לדף הראשי</a>
     <div class="container">
         <h1>קיצורי דרך לכלי AI</h1>
         
         <div class="shortcut-section">
             <h2>ChatGPT</h2>
+            <p>כלי מבית OpenAI שמבוסס על מודלים של למידת מכונה לשיח אינטליגנטי.</p>
             <ul class="shortcut-list">
                 <li class="shortcut-item"><span class="shortcut-key">Ctrl + /</span>: פתח תפריט קיצורי דרך</li>
                 <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + C</span>: העתק את כל השיחה</li>
@@ -133,6 +170,7 @@
 
         <div class="shortcut-section">
             <h2>Midjourney</h2>
+            <p>כלי יצירה אמנותית שמאפשר ליצור תמונות חדשות באמצעות AI.</p>
             <ul class="shortcut-list">
                 <li class="shortcut-item"><span class="shortcut-key">/imagine</span>: צור תמונה חדשה</li>
                 <li class="shortcut-item"><span class="shortcut-key">/blend</span>: ערבב מספר תמונות</li>
@@ -144,12 +182,35 @@
 
         <div class="shortcut-section">
             <h2>DALL-E</h2>
+            <p>כלי AI מתקדם ליצירת תמונות חדשות על פי טקסט שנכתב.</p>
             <ul class="shortcut-list">
                 <li class="shortcut-item"><span class="shortcut-key">Ctrl + Enter</span>: צור תמונה</li>
                 <li class="shortcut-item"><span class="shortcut-key">Ctrl + Z</span>: בטל פעולה אחרונה</li>
                 <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + Z</span>: חזור על פעולה שבוטלה</li>
                 <li class="shortcut-item"><span class="shortcut-key">Ctrl + S</span>: שמור תמונה</li>
                 <li class="shortcut-item"><span class="shortcut-key">Ctrl + C</span>: העתק תמונה</li>
+            </ul>
+        </div>
+
+        <div class="shortcut-section">
+            <h2>Whisper</h2>
+            <p>Whisper הוא מודל AI להמרת דיבור לטקסט, מהיר וקל לשימוש.</p>
+            <ul class="shortcut-list">
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + S</span>: התחל המרת דיבור לטקסט</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + P</span>: עצור המרת דיבור לטקסט</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Shift + C</span>: העתק את הטקסט שהומר</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Z</span>: בטל המרה אחרונה</li>
+            </ul>
+        </div>
+
+        <div class="shortcut-section">
+            <h2>Copilot</h2>
+            <p>GitHub Copilot הוא כלי AI המסייע בכתיבת קוד בזמן אמת עבור מפתחים.</p>
+            <ul class="shortcut-list">
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + Enter</span>: בקש הצעה להשלמת קוד</li>
+                <li class="shortcut-item"><span class="shortcut-key">Ctrl + /</span>: דלג להצעה הבאה</li>
+                <li class="shortcut-item"><span class="shortcut-key">Tab</span>: קבל את ההצעה הנוכחית</li>
+                <li class="shortcut-item"><span class="shortcut-key">Esc</span>: התעלם מהצעה</li>
             </ul>
         </div>
 
@@ -170,8 +231,17 @@
                 <li><a href="https://docs.midjourney.com/docs/command-list" target="_blank">רשימת פקודות Midjourney</a></li>
                 <li><a href="https://labs.openai.com/" target="_blank">DALL-E מאת OpenAI</a></li>
                 <li><a href="https://www.coursera.org/articles/ai-tools" target="_blank">סקירה של כלי AI פופולריים</a></li>
+                <li><a href="https://docs.github.com/en/copilot" target="_blank">GitHub Copilot</a></li>
             </ul>
         </div>
     </div>
+
+    <div class="toggle-dark-mode" onclick="toggleDarkMode()">הפעל מצב לילה</div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
 </html>
