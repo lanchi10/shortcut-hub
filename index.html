@@ -10,7 +10,7 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f0f0;
             color: #333;
         }
         .container {
@@ -22,7 +22,7 @@
             position: fixed;
             top: 10px;
             left: 10px;
-            background-color: #667eea;
+            background-color: #4a4a4a;
             color: white;
             padding: 5px 10px;
             border-radius: 5px;
@@ -30,19 +30,50 @@
             z-index: 1000;
         }
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #3a7bd5 0%, #3a6073 100%);
             color: white;
             text-align: center;
-            padding: 60px 0;
-            margin-bottom: 40px;
+            padding: 40px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         h1 {
             font-size: 3em;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         .subtitle {
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+        .resource-links {
+            background-color: #2c3e50;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .resource-links h2 {
+            color: #ecf0f1;
+            margin-bottom: 10px;
+        }
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .resource-link {
+            background-color: #34495e;
+            color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .resource-link:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
         }
         .quick-links {
             display: flex;
@@ -52,15 +83,17 @@
             margin-top: 20px;
         }
         .quick-link {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: #3498db;
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 25px;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: bold;
         }
         .quick-link:hover {
-            background-color: rgba(255, 255, 255, 0.3);
+            background-color: #2980b9;
+            transform: translateY(-2px);
         }
         .categories {
             display: grid;
@@ -85,21 +118,40 @@
             margin-bottom: 15px;
         }
         .category h2 {
-            color: #667eea;
+            color: #3498db;
             margin-bottom: 10px;
         }
         .learn-more {
             display: inline-block;
             margin-top: 15px;
             padding: 10px 20px;
-            background-color: #667eea;
+            background-color: #3498db;
             color: white;
             text-decoration: none;
             border-radius: 25px;
             transition: background-color 0.3s ease;
+            font-weight: bold;
         }
         .learn-more:hover {
-            background-color: #764ba2;
+            background-color: #2980b9;
+        }
+        .note {
+            background-color: #f9f9f9;
+            border-left: 5px solid #3498db;
+            padding: 10px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #e0e0e0;
+        }
+        .logo {
+            max-width: 100px;
+            height: auto;
         }
     </style>
 </head>
@@ -109,6 +161,7 @@
         <div class="container">
             <h1>Shortcut Hub</h1>
             <p class="subtitle">גלה את הכוח של קיצורי דרך ושפר את היעילות שלך</p>
+            
             <div class="quick-links">
                 <a href="SH002.html" class="quick-link">מערכות הפעלה</a>
                 <a href="SH003.html" class="quick-link">דפדפנים</a>
@@ -121,6 +174,20 @@
     </header>
 
     <main class="container">
+        <div class="resource-links">
+            <h2>משאבים שימושיים נוספים</h2>
+            <div class="resource-grid">
+                <a href="https://lanchi10.github.io/all/" class="resource-link">שימושי ליום יום</a>
+                <a href="https://lanchi10.github.io/prm/" class="resource-link">מדריך PROMPTS</a>
+                <a href="https://lanchi10.github.io/prompter/" class="resource-link">טלפרומפטר</a>
+                <a href="https://lanchi10.github.io/landing/" class="resource-link">כלי AI מובילים</a>
+            </div>
+        </div>
+
+        <div class="note">
+            הערה: המשאבים הנוספים הם בונוס עבורך! אנו מוסיפים משאבים חדשים מעת לעת כדי לשפר את חווית המשתמש שלך.
+        </div>
+
         <div class="categories">
             <div class="category">
                 <div class="category-icon">💻</div>
@@ -160,5 +227,9 @@
             </div>
         </div>
     </main>
+
+    <footer>
+        <img src="images/logo.jpg" alt="Shortcut Hub Logo" class="logo">
+    </footer>
 </body>
 </html>
