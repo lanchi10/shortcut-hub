@@ -44,17 +44,23 @@
             font-size: 1.2em;
             margin-bottom: 30px;
         }
-        .search-bar {
-            max-width: 600px;
-            margin: 0 auto;
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
         }
-        .search-bar input {
-            width: 100%;
-            padding: 15px;
-            font-size: 18px;
-            border: none;
-            border-radius: 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .quick-link {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .quick-link:hover {
+            background-color: rgba(255, 255, 255, 0.3);
         }
         .categories {
             display: grid;
@@ -95,20 +101,6 @@
         .learn-more:hover {
             background-color: #764ba2;
         }
-        .quick-tips {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .quick-tips h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-        }
-        .quick-tips ul {
-            padding-right: 20px;
-        }
     </style>
 </head>
 <body>
@@ -117,8 +109,13 @@
         <div class="container">
             <h1>Shortcut Hub</h1>
             <p class="subtitle">גלה את הכוח של קיצורי דרך ושפר את היעילות שלך</p>
-            <div class="search-bar">
-                <input type="text" placeholder="חפש קיצור דרך...">
+            <div class="quick-links">
+                <a href="SH002.html" class="quick-link">מערכות הפעלה</a>
+                <a href="SH003.html" class="quick-link">דפדפנים</a>
+                <a href="SH004.html" class="quick-link">כלי פרודוקטיביות</a>
+                <a href="SH005.html" class="quick-link">עריכת מדיה</a>
+                <a href="SH006.html" class="quick-link">פיתוח</a>
+                <a href="SH007.html" class="quick-link">כלי AI</a>
             </div>
         </div>
     </header>
@@ -161,17 +158,6 @@
                 <p>שלוט בכלי AI מתקדמים בקלות</p>
                 <a href="SH007.html" class="learn-more">גלה עוד</a>
             </div>
-        </div>
-
-        <div class="quick-tips">
-            <h2>טיפים מהירים</h2>
-            <ul>
-                <li>לחץ על Ctrl + C (או Cmd + C במק) כדי להעתיק טקסט מסומן</li>
-                <li>השתמש ב-Alt + Tab כדי לעבור בין חלונות פתוחים</li>
-                <li>לחץ על Win + D (או Cmd + F3 במק) כדי להציג את שולחן העבודה</li>
-                <li>השתמש ב-Ctrl + F (או Cmd + F במק) כדי לחפש בדף או במסמך</li>
-                <li>לחץ על Win + L (או Ctrl + Cmd + Q במק) כדי לנעול את המחשב במהירות</li>
-            </ul>
         </div>
     </main>
 </body>
